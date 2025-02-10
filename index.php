@@ -6,67 +6,135 @@
     <title>Conferma Presenza - Evento</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            height: 100vh; /* Altezza completa della viewport */
-            position: relative; /* Necessario per posizionare il div sopra lo sfondo */
-            background-image: url('assets/images/1.jfif'); /* Sfondo statico */
-            background-size: cover;
+            min-height: 100vh;
+            position: relative;
+            background-image: url('assets/images/img_principale.jpeg');
+            background-size: 100% auto;
             background-position: center;
             background-repeat: no-repeat;
-            display: flex; /* Usiamo Flexbox per centrare il contenuto */
-            justify-content: center; /* Centratura orizzontale */
-            align-items: center; /* Centratura verticale */
+            background-color: #333;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            font-family: 'Playfair Display', serif;
         }
 
-        /* Div per oscurare lo sfondo */
         .overlay {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Oscuramento semitrasparente */
-            z-index: 1; /* Si trova sopra lo sfondo */
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Bordo sottile per l'overlay */
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
         }
 
         .content {
-            position: relative; /* Posizionato sopra l'overlay */
-            z-index: 2; /* Si trova sopra l'overlay */
+            position: relative;
+            z-index: 2;
             text-align: center;
-            color: white; /* Testi bianchi */
-            max-width: 400px; /* Larghezza massima del contenitore */
-            padding: 2rem; /* Spazio interno */
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Bordo sottile */
-            border-radius: 10px; /* bordi arrotondati */
-            background-color: transparent; /* Contenitore trasparente */
+            color: white;
+            width: 100%;
+            max-width: 600px;
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            line-height: 1.8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            padding: 0 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .event-details {
+            margin-top: auto;
+            position: relative;
+            width: 100%;
         }
 
         .content h1 {
-            font-size: 2.5rem; /* Dimensione del titolo */
-            margin-bottom: 1rem; /* Spazio sotto il titolo */
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: 1rem;
+            font-weight: 400;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .content p {
-            font-size: 1.2rem; /* Dimensione del paragrafo */
-            margin-bottom: 2rem; /* Spazio sotto il paragrafo */
+            font-size: clamp(1.4rem, 3.5vw, 2rem);
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            line-height: 1.6;
         }
 
-        /* Stile per i bottoni */
+        .content .event-details p {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+        }
+
         .content a.btn {
-            background-color: transparent; /* Bottone trasparente */
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Bordo sottile */
-            color: white; /* Testo dei bottoni bianco */
-            transition: all 0.3s ease; /* Effetto smooth al hover */
-            width: 100%; /* Bottoni a larghezza piena */
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 1rem;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
-        /* Effetto al passaggio del mouse */
         .content a.btn:hover {
-            background-color: white; /* Bottone bianco al hover */
-            color: black; /* Testo nero al hover */
+            background-color: rgba(255, 255, 255, 0.9);
+            color: black;
+            text-shadow: none;
+        }
+
+        @media (max-width: 576px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .quote {
+                font-size: clamp(1.6rem, 5vw, 2rem)!important;
+                line-height: 1.6;
+                padding: 0 1rem;
+            }
+            .content p {
+                /* font-size: clamp(1.2rem, 4vw, 1.6rem); */
+            }
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+            body {
+                background-size: auto 100vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-size: cover;
+            }
         }
     </style>
 </head>
@@ -76,10 +144,13 @@
 
     <!-- Contenitore principale -->
     <div class="content">
-        <h1>Evento Speciale</h1>
-        <p>Data: 15 Luglio 2023 | Luogo: Villa Paradiso</p>
-        <a href="confirm.php" class="btn btn-primary btn-lg">Conferma Presenza</a>
-        <a href="gift.php" class="btn btn-success btn-lg">Istruzioni per il Regalo</a>
+        <p class="quote">~ Stare insieme è giurarsi la cecità del 'sempre'. Sposarsi è promettersi la bellezza del 'nonostante' ~</p>
+        <div class="event-details">
+            <h1>Matrimonio<br> Maurizio & Elena</h1>
+            <p>Data: 12 Aprile 2025 | Luogo: Ristorante Agriturismo</p>
+            <a href="confirm.php" class="btn btn-primary btn-lg">Conferma Presenza</a>
+            <a href="gift.php" class="btn btn-success btn-lg">Istruzioni per il Regalo</a>
+        </div>
     </div>
 </body>
 </html>
