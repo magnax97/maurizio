@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maurizio & Elena</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
@@ -14,7 +15,7 @@
             min-height: 100vh;
             position: relative;
             background-image: url('assets/images/img_principale.jpeg');
-            background-size: 100% auto;
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-color: #333;
@@ -22,7 +23,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 1rem;
+            padding: 0;
             font-family: 'Playfair Display', serif;
         }
 
@@ -49,7 +50,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 100vh;
+            gap: 2rem;
         }
 
         .quote {
@@ -57,10 +58,7 @@
             font-size: clamp(1.8rem, 4vw, 3rem);
             line-height: 1.8;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: relative;
             width: 100%;
             padding: 0 2rem;
             max-width: 800px;
@@ -70,7 +68,6 @@
         }
 
         .event-details {
-            margin-top: auto;
             position: relative;
             width: 100%;
         }
@@ -112,16 +109,17 @@
         }
 
         @media (max-width: 576px) {
+            body {
+                padding: 1rem;
+            }
             .content {
-                padding: 1.5rem;
+                padding: 1rem;
+                gap: 1rem;
             }
             .quote {
                 font-size: clamp(1.6rem, 5vw, 2rem)!important;
                 line-height: 1.6;
                 padding: 0 1rem;
-            }
-            .content p {
-                /* font-size: clamp(1.2rem, 4vw, 1.6rem); */
             }
         }
 
