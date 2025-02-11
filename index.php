@@ -8,7 +8,9 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Aggiungiamo Font Awesome per l'icona -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
             margin: 0;
@@ -54,8 +56,8 @@
         }
 
         .quote {
-            font-style: italic;
-            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
             line-height: 1.8;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             position: relative;
@@ -117,7 +119,7 @@
                 gap: 1rem;
             }
             .quote {
-                font-size: clamp(1.6rem, 5vw, 2rem)!important;
+                font-size: clamp(1.8rem, 5vw, 2.2rem)!important;
                 line-height: 1.6;
                 padding: 0 1rem;
             }
@@ -134,6 +136,24 @@
                 background-size: cover;
             }
         }
+
+        .location-link {
+            color: white;
+            text-decoration: none;
+            margin-left: 0;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .location-link:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .location-icon {
+            font-size: 1em;
+        }
     </style>
 </head>
 <body>
@@ -145,9 +165,14 @@
         <p class="quote">~ Stare insieme è giurarsi la cecità del 'sempre'. Sposarsi è promettersi la bellezza del 'nonostante' ~</p>
         <div class="event-details">
             <h1>Matrimonio<br> Maurizio & Elena</h1>
-            <p>Data: 12 Aprile 2025 | Luogo: Ristorante Agriturismo</p>
+            <p>Data: 12 Aprile 2025 ore 11:00<br>Luogo: 
+                <a href="https://maps.app.goo.gl/oDANC13nhqa8tpmR8" target="_blank" class="location-link" title="Apri in Google Maps">
+                    Agriturismo Colleoli
+                    <i class="fas fa-location-dot location-icon"></i>
+                </a>
+            </p>
             <a href="confirm.php" class="btn btn-primary btn-lg">Conferma Presenza</a>
-            <a href="gift.php" class="btn btn-success btn-lg">Istruzioni per il Regalo</a>
+            <a href="gift.php" class="btn btn-success btn-lg">Per il Nostro Viaggio</a>
         </div>
     </div>
 </body>

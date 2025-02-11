@@ -91,7 +91,8 @@
         }
 
         .form-container .btn-primary,
-        .form-container .btn-success {
+        .form-container .btn-success,
+        .form-container .btn {
             background-color: transparent;
             border: 1px solid rgba(255, 255, 255, 0.4);
             color: white;
@@ -100,8 +101,18 @@
         }
 
         .form-container .btn-primary:hover,
-        .form-container .btn-success:hover {
-            border-color: rgba(255, 255, 255, 0.8);
+        .form-container .btn-success:hover,
+        .form-container .btn:hover,
+        .form-container .btn-primary:active,
+        .form-container .btn-success:active,
+        .form-container .btn:active,
+        .form-container .btn-primary:focus,
+        .form-container .btn-success:focus,
+        .form-container .btn:focus {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 0.9);
+            color: black;
+            text-shadow: none;
         }
 
         .form-container .alert-success {
@@ -117,6 +128,32 @@
                 margin: 1rem;
                 padding: 1.5rem;
             }
+
+            .form-container h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .form-container .form-label {
+                font-size: 0.9rem;
+            }
+
+            .form-container input.form-control,
+            .form-container select.form-control {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+                height: auto;
+            }
+
+            .form-container .btn {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .form-container .alert-success {
+                font-size: 0.9rem;
+                padding: 0.4rem;
+            }
         }
 
         /* Placeholder color */
@@ -127,6 +164,34 @@
         /* Number input arrows color */
         .form-container input[type="number"]::-webkit-inner-spin-button {
             filter: invert(1);
+        }
+
+        /* Stili per select e option */
+        .form-container select.form-control option {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+        /* Forza la direzione del menu a tendina verso il basso */
+        .form-container select.form-control {
+            direction: ltr !important;
+            position: relative;
+        }
+
+        /* Assicura che il menu si apra verso il basso */
+        .form-container select.form-control option {
+            position: relative;
+            top: 100%;
+        }
+
+        /* Stile per l'opzione selezionata */
+        .form-container select.form-control option:checked {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Stile per hover sulle option */
+        .form-container select.form-control option:hover {
+            background-color: rgba(0, 0, 0, 0.7);
         }
     </style>
 </head>
@@ -140,11 +205,12 @@
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $name = htmlspecialchars($_POST['name']);
-            $attending = $_POST['attending'];
             $guests = intval($_POST['guests']);
             $children = isset($_POST['children']) ? intval($_POST['children']) : 0;
+            $dietary = htmlspecialchars($_POST['dietary']);
+            $bet = htmlspecialchars($_POST['bet']);
 
-            $data = [$name, $attending, $guests, $children];
+            $data = [$name, $guests, $children, $dietary, $bet];
             $file = fopen("data.csv", "a");
             fputcsv($file, $data);
             fclose($file);
@@ -154,33 +220,70 @@
         }
         ?>
 
-        <form method="POST" action="">
+        <form method="POST" action="" id="confirmForm">
             <div class="mb-3">
                 <label for="name" class="form-label">Nome e Cognome:</label>
                 <input type="text" id="name" name="name" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label class="form-label">Parteciperai?</label><br>
-                <div class="form-check form-check-inline">
-                    <input type="radio" id="yes" name="attending" value="Si" class="form-check-input" required>
-                    <label for="yes" class="form-check-label">Sì</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input type="radio" id="no" name="attending" value="No" class="form-check-input">
-                    <label for="no" class="form-check-label">No</label>
-                </div>
-            </div>
-            <div class="mb-3">
                 <label for="guests" class="form-label">Numero di Adulti:</label>
-                <input type="number" id="guests" name="guests" class="form-control" min="0" value="0">
+                <input type="number" id="guests" name="guests" class="form-control" min="0" value="0" required>
             </div>
             <div class="mb-3">
                 <label for="children" class="form-label">Numero di Bambini:</label>
-                <input type="number" id="children" name="children" class="form-control" min="0" value="0">
+                <input type="number" id="children" name="children" class="form-control" min="0" value="0" required>
+            </div>
+            <div class="mb-3">
+                <label for="dietary" class="form-label">Esigenze o Richieste Alimentari:</label>
+                <input type="text" id="dietary" name="dietary" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="bet" class="form-label">Piazza la tua scommessa per il giorno del matrimonio:</label>
+                <select id="bet" name="bet" class="form-control">
+                    <option value="">Seleziona una scommessa...</option>
+                    <option value="sposa_cade">La sposa cade</option>
+                    <option value="scarpe_sposa">Le scarpe della sposa si rompono</option>
+                    <option value="pantaloni_sposo">I pantaloni dello sposo si rompono</option>
+                    <option value="alcol">Prima della torta lo sposo dimostra di reggere l'alcol peggio della sposa</option>
+                    <option value="invitato_dorme">Un invitato si addormenta al tavolino</option>
+                </select>
+                <a href="regolamento.php" class="text-white mt-2 d-block" style="font-size: 0.9rem; text-decoration: underline;" onclick="saveFormData()">Regolamento</a>
             </div>
             <button type="submit" class="btn btn-primary w-100">Invia</button>
         </form>
         <a href="index.php" class="btn btn-success w-100 mt-3">Torna alla Homepage</a>
     </div>
+
+    <script>
+        // Funzione per salvare i dati del form
+        function saveFormData() {
+            const formData = {
+                name: document.getElementById('name').value,
+                guests: document.getElementById('guests').value,
+                children: document.getElementById('children').value,
+                dietary: document.getElementById('dietary').value,
+                bet: document.getElementById('bet').value
+            };
+            localStorage.setItem('formData', JSON.stringify(formData));
+        }
+
+        // Funzione per ripristinare i dati del form
+        function restoreFormData() {
+            const savedData = localStorage.getItem('formData');
+            if (savedData) {
+                const formData = JSON.parse(savedData);
+                document.getElementById('name').value = formData.name;
+                document.getElementById('guests').value = formData.guests;
+                document.getElementById('children').value = formData.children;
+                document.getElementById('dietary').value = formData.dietary;
+                document.getElementById('bet').value = formData.bet;
+                // Puliamo il localStorage dopo aver ripristinato i dati
+                localStorage.removeItem('formData');
+            }
+        }
+
+        // Ripristina i dati quando la pagina viene caricata
+        document.addEventListener('DOMContentLoaded', restoreFormData);
+    </script>
 </body>
 </html>
