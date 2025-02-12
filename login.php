@@ -34,14 +34,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         body {
             font-family: 'Playfair Display', serif;
             background-image: url('assets/images/img1.jpeg');
-            background-size: cover;
+            background-size: auto 100vh;
             background-position: center;
+            background-color: #000;
             background-attachment: fixed;
+            background-repeat: repeat-x;
             min-height: 100vh;
             margin: 0;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+            body {
+                background-size: cover;
+            }
         }
 
         .overlay {

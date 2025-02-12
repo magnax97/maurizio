@@ -7,6 +7,8 @@
     <link rel="icon" type="image/x-icon" href="favicon.png">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
@@ -19,30 +21,27 @@
             align-items: center;
             font-family: 'Playfair Display', serif;
             overflow: hidden;
+            background-color: #000;
         }
 
-        .slideshow {
+        .swiper {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh;
             z-index: 0;
         }
 
-        .slideshow img {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .swiper-slide {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .slideshow img.active {
-            opacity: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: auto 100vh;
+            background-position: center;
+            background-repeat: repeat-x;
         }
 
         .overlay {
@@ -123,17 +122,25 @@
                 margin: 1rem;
             }
         }
+
+        @media (max-aspect-ratio: 16/9) {
+            .swiper-slide {
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Slideshow di foto di sfondo -->
-    <div class="slideshow">
-        <?php
-        for($i = 2; $i <= 18; $i++) {
-            $active = $i === 2 ? ' class="active"' : '';
-            echo "<img src='assets/images/img{$i}.jpeg' alt='Foto {$i}'{$active}>";
-        }
-        ?>
+    <!-- Slideshow con Swiper -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <?php
+            for($i = 2; $i <= 18; $i++) {
+                echo "<div class='swiper-slide' style='background-image: url(\"assets/images/img{$i}.jpeg\")'></div>";
+            }
+            ?>
+        </div>
     </div>
 
     <!-- Overlay per leggera ombreggiatura -->
@@ -142,24 +149,27 @@
     <!-- Contenitore principale -->
     <div class="content-container">
         <p>Non sappiamo ancora dove e quando, ma chi desidera aiutarci nella prossima avventura, può contribuire qui</p>
-        <p class="iban"><strong>IBAN:</strong>IT23R0306971166100000004356</p>
+        <p>Maurizio Chiesa <br>E <br> Elena Ciurli<br></p><p class="iban">IT23R0306971166100000004356</p>
         <!-- <p>Utilizza il tuo nome come riferimento.</p> -->
         <a href="index.php" class="btn btn-success mt-3">Torna alla Homepage</a>
     </div>
 
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('.slideshow img');
-            let currentIndex = 0;
-
-            function nextImage() {
-                images[currentIndex].classList.remove('active');
-                currentIndex = (currentIndex + 1) % images.length;
-                images[currentIndex].classList.add('active');
-            }
-
-            // Cambia immagine ogni 4 secondi
-            setInterval(nextImage, 4000);
+            const swiper = new Swiper('.swiper', {
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                loop: true,
+                speed: 1000,
+            });
         });
     </script>
 </body>

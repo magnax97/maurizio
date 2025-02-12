@@ -14,16 +14,23 @@
             margin: 0;
             min-height: 100vh;
             position: relative;
+            background-image: url('assets/images/img1.jpeg');
+            background-size: auto 100vh;
+            background-position: center;
+            background-color: #000;
+            background-attachment: fixed;
+            background-repeat: repeat-x;
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: 'Playfair Display', serif;
             overflow: hidden;
-            background-image: url('assets/images/img1.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+            body {
+                background-size: cover;
+            }
         }
 
         .overlay {
@@ -234,18 +241,20 @@
                 <input type="number" id="children" name="children" class="form-control" min="0" value="0" required>
             </div>
             <div class="mb-3">
-                <label for="dietary" class="form-label">Esigenze o Richieste Alimentari:</label>
+                <label for="dietary" class="form-label">Esigenze Alimentari:</label>
                 <input type="text" id="dietary" name="dietary" class="form-control">
             </div>
             <div class="mb-3">
                 <label for="bet" class="form-label">Piazza la tua scommessa per il giorno del matrimonio:</label>
-                <select id="bet" name="bet" class="form-control">
+                <select id="bet" name="bet" class="form-control" required>
                     <option value="">Seleziona una scommessa...</option>
-                    <option value="sposa_cade">La sposa cade</option>
-                    <option value="scarpe_sposa">Le scarpe della sposa si rompono</option>
-                    <option value="pantaloni_sposo">I pantaloni dello sposo si rompono</option>
-                    <option value="alcol">Prima della torta lo sposo dimostra di reggere l'alcol peggio della sposa</option>
-                    <option value="invitato_dorme">Un invitato si addormenta al tavolino</option>
+                    <option value="sposa_cade">La sposa cade (1,50:1)</option>
+                    <option value="scarpe_sposa">Le scarpe della sposa si rompono (1,50:1)</option>
+                    <option value="pantaloni_sposo">I pantaloni dello sposo si rompono (1,20:1)</option>
+                    <option value="alcol">Prima della torta lo sposo dimostra di reggere l'alcol peggio della sposa (2:1)</option>
+                    <option value="invitato_dorme">Un invitato si addormenta al tavolino (non valgono i bambini) (2:1)</option>
+                    <option value="invitata_cade">Un' invitata cade nel tentativo di prendere (o non prendere) il bouquet (2:1)</option>
+                    <option value="invitato_cade">Un invitato cade nel tentativo di non far prendere il bouquet alla propria partner (2:1)</option>
                 </select>
                 <a href="regolamento.php" class="text-white mt-2 d-block" style="font-size: 0.9rem; text-decoration: underline;" onclick="saveFormData()">Regolamento</a>
             </div>

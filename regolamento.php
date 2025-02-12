@@ -14,15 +14,22 @@
             margin: 0;
             min-height: 100vh;
             position: relative;
+            background-image: url('assets/images/img1.jpeg');
+            background-size: auto 100vh;
+            background-position: center;
+            background-color: #000;
+            background-attachment: fixed;
+            background-repeat: repeat-x;
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: 'Playfair Display', serif;
-            background-image: url('assets/images/img1.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+        }
+
+        @media (max-aspect-ratio: 16/9) {
+            body {
+                background-size: cover;
+            }
         }
 
         .overlay {
@@ -58,17 +65,35 @@
             line-height: 1.6;
         }
 
+        .rules .intro {
+            font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
         .rules h2 {
             font-size: clamp(1.4rem, 3vw, 1.8rem);
             margin: 1.5rem 0 1rem;
+            font-weight: normal;
         }
 
         .rules ul {
             margin-bottom: 1.5rem;
+            list-style-type: none;
+            padding-left: 0;
         }
 
         .rules li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-left: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .rules li:before {
+            content: "-";
+            position: absolute;
+            left: 0;
         }
 
         .btn {
@@ -99,27 +124,23 @@
     <div class="overlay"></div>
 
     <div class="content-container">
-        <h1>Regolamento Scommesse</h1>
         
         <div class="rules">
-            <h2>Come Funziona</h2>
-            <ul>
-                <li>Ogni invitato può effettuare una sola scommessa</li>
-                <li>La scommessa deve essere piazzata al momento della conferma di presenza</li>
-                <li>Non è possibile modificare la propria scommessa una volta inviata</li>
-            </ul>
+            <p class="intro">Un regalo speciale particolare attende il fortunato vincitore della scommessa.</p>
 
-            <h2>Validazione delle Scommesse</h2>
+            <h2>Regolamento:</h2>
             <ul>
-                <li>Gli eventi saranno validati dagli sposi</li>
-                <li>Per essere valido, l'evento deve accadere durante la cerimonia o il ricevimento</li>
-                <li>In caso di contestazioni, il giudizio degli sposi è insindacabile</li>
-            </ul>
-
-            <h2>Premio</h2>
-            <ul>
-                <li>Chi indovina riceverà un premio speciale dagli sposi</li>
-                <li>In caso di più vincitori, il premio verrà diviso equamente</li>
+                <li>Scegli la tua scommessa (una per invitato) e scopri se l'evento si verificherà</li>
+                
+                <li>Le quotazioni esprimono solo una stima verosimile della probabilità dell'evento, ma sono indipendenti dal premio, che è unico</li>
+                
+                <li>In caso si verifichino più eventi, vincerà quello che si verificherà per primo</li>
+                
+                <li>È vietato favorire il verificarsi di un evento</li>
+                
+                <li>In caso di più vincitori, il premio sarà assegnato allo scommettitore più anziano</li>
+                
+                <li>In caso di assenza di vincitori, perché nessun evento si verifica, il premio sarà assegnato come consolazione al partner della fortunata donzella che si aggiudicherà il bouquet. Se il partner non esiste o non è presente, il premio sarà assegnato come consolazione alla coppia che vanta il maggior numero di anni di matrimonio</li>
             </ul>
         </div>
 

@@ -17,11 +17,11 @@
             min-height: 100vh;
             position: relative;
             background-image: url('assets/images/img_principale.jpeg');
-            background-size: cover;
+            background-size: auto 100vh;
             background-position: center;
-            background-repeat: no-repeat;
-            background-color: #333;
+            background-color: #000;
             background-attachment: fixed;
+            background-repeat: repeat-x;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -127,7 +127,7 @@
 
         @media (max-aspect-ratio: 16/9) {
             body {
-                background-size: auto 100vh;
+                background-size: cover;
             }
         }
 
