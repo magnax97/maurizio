@@ -5,6 +5,17 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit;
 }
 
+// Array per mappare i valori delle scommesse
+$bet_mapping = [
+    'sposa_cade' => 'La sposa cade (1,50:1)',
+    'scarpe_sposa' => 'Le scarpe della sposa si rompono (1,50:1)',
+    'pantaloni_sposo' => 'I pantaloni dello sposo si rompono (1,20:1)',
+    'alcol' => 'Prima della torta lo sposo dimostra di reggere l\'alcol peggio della sposa (2:1)',
+    'invitato_dorme' => 'Un invitato si addormenta al tavolino (non valgono i bambini) (2:1)',
+    'invitata_cade' => 'Un\' invitata cade nel tentativo di prendere (o non prendere) il bouquet (2:1)',
+    'invitato_cade' => 'Un invitato cade nel tentativo di non far prendere il bouquet alla propria partner (2:1)'
+];
+
 function countTotal($data) {
     $adults = 0;
     $children = 0;
@@ -247,7 +258,7 @@ $totals = countTotal($data);
                         <td><?php echo htmlspecialchars($row[1]); ?></td>
                         <td><?php echo htmlspecialchars($row[2]); ?></td>
                         <td><?php echo htmlspecialchars($row[3]); ?></td>
-                        <td><?php echo htmlspecialchars($row[4]); ?></td>
+                        <td><?php echo isset($bet_mapping[$row[4]]) ? htmlspecialchars($bet_mapping[$row[4]]) : htmlspecialchars($row[4]); ?></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

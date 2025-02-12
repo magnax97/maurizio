@@ -165,7 +165,7 @@
         <p class="quote">~ Stare insieme è giurarsi la cecità del 'sempre'. Sposarsi è promettersi la bellezza del 'nonostante' ~</p>
         <div class="event-details">
             <h1>Matrimonio<br> Maurizio & Elena</h1>
-            <p>Data: 12 Aprile 2025 ore 11:00<br>Luogo: 
+            <p>12 Aprile ore 11:00<br>
                 <a href="https://maps.app.goo.gl/oDANC13nhqa8tpmR8" target="_blank" class="location-link" title="Apri in Google Maps">
                     Agriturismo Colleoli
                     <i class="fas fa-location-dot location-icon"></i>
