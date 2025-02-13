@@ -130,7 +130,7 @@
 
             <h2>Regolamento:</h2>
             <ul>
-                <li>Scegli la tua scommessa (una per invitato) e scopri se l'evento si verificherà</li>
+                <li>Scegli la tua scommessa (una per conferma di presenza) e scopri se l'evento si verificherà</li>
                 
                 <li>Le quotazioni esprimono solo una stima verosimile della probabilità dell'evento, ma sono indipendenti dal premio, che è unico</li>
                 
