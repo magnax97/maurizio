@@ -253,7 +253,7 @@
                     <option value="pantaloni_sposo">I pantaloni dello sposo si rompono (1,20:1)</option>
                     <option value="alcol">Prima della torta lo sposo dimostra di reggere l'alcol peggio della sposa (2:1)</option>
                     <option value="invitato_dorme">Un invitato si addormenta al tavolino (non valgono i bambini) (2:1)</option>
-                    <option value="invitata_cade">Un' invitata cade nel tentativo di prendere (o non prendere) il bouquet (2:1)</option>
+                    <option value="invitata_cade">Un' invitata cade nel tentativo di prendere (o non prendere) il bouquet (1,20:1)</option>
                     <option value="invitato_cade">Un invitato cade nel tentativo di non far prendere il bouquet alla propria partner (2:1)</option>
                 </select>
                 <a href="regolamento.php" class="text-white mt-2 d-block" style="font-size: 0.9rem; text-decoration: underline;" onclick="saveFormData()">Regolamento</a>
