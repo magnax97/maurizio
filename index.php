@@ -8,20 +8,20 @@
     
 
     <!-- Facebook Meta Tags -->
-    <meta property="og:robots" content="index, follow">
-    <meta property="og:url" content="https://www.maurizioelena.free.nf">
+    
+    <meta property="og:url" content="https://www.maurizioelena.free.nf?i=1">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Matrimonio di Maurizio & Elena">
     <meta property="og:description" content="Unisciti a noi per celebrare il nostro giorno speciale il 12 Aprile. Scopri di più e conferma la tua presenza!">
-    <meta property="og:image" content="https://www.maurizioelena.free.nf/assets/images/img_principale.jpeg">
+    <meta property="og:image" content="https://www.maurizioelena.free.nf/assets/images/img_principale.jpeg?v=2">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="maurizioelena.free.nf">
-    <meta property="twitter:url" content="https://www.maurizioelena.free.nf">
+    <meta property="twitter:url" content="https://www.maurizioelena.free.nf/?i=1">
     <meta name="twitter:title" content="Matrimonio di Maurizio & Elena">
     <meta name="twitter:description" content="Unisciti a noi per celebrare il nostro giorno speciale il 12 Aprile. Scopri di più e conferma la tua presenza!">
-    <meta name="twitter:image" content="https://www.maurizioelena.free.nf/assets/images/img_principale.jpeg">
+    <meta name="twitter:image" content="https://www.maurizioelena.free.nf/assets/images/img_principale.jpeg?v=2">
 
 
     <!-- Bootstrap CSS -->

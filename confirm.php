@@ -248,7 +248,7 @@
                 <label for="bet" class="form-label">Piazza la tua scommessa per il giorno del matrimonio:</label>
                 <select id="bet" name="bet" class="form-control" required>
                     <option value="">Seleziona una scommessa...</option>
-                    <option value="sposa_cade">La sposa cade (1,50:1)</option>
+                    <option value="sposa_cade">La sposa cade,caduta completa,non vale l'inciampo (1,50:1)</option>
                     <option value="scarpe_sposa">Le scarpe della sposa si rompono (1,50:1)</option>
                     <option value="pantaloni_sposo">I pantaloni dello sposo si rompono (1,20:1)</option>
                     <option value="alcol">Prima della torta lo sposo dimostra di reggere l'alcol peggio della sposa (2:1)</option>
